@@ -1,7 +1,6 @@
 var currModel = model; 
 var priority=0;
 var viewModel = {
-	self: this, 
 	list1: ko.observableArray([]),
 	list2: ko.observableArray([]),
 	studentNm: "",
@@ -103,10 +102,33 @@ var viewModel = {
 			viewModel.list1.push(courses[course]);
 			//console.log(courses[course].desc+" added to courselist");
 		};
+	},
+	
+	
+	sendTest: function () {
+		
+		console.log('sending requeset....'); 
+		api.sendRequest();
+		
 	}
 	};
-	//viewModel.initCourseList();
-	
+var api = {
+
+ backendURL : 'http://cs6310-api-v1.mybluemix.net/api/privilege/privilegeAll',
+
+ sendRequest: function(){		
+ 		$.ajax({
+			url : api.backendURL,
+			dataType: 'jsonp',
+			type: 'GET',
+			success: function (data) {
+			console.log(JSON.stringify(data)); 
+			}
+		});
+ }
+  
+ }
+
 
 viewModel.initStudent(currModel.getStudent());	
 viewModel.initCourseList(); 
