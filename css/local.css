@@ -1,0 +1,25 @@
+.priority {
+text-align:center;
+font-weight:bold;
+}
+
+span[disabled] {
+pointer-events: none;
+}
+
+.ilabel {
+background-color:#996600;
+color:black;
+text-align:center;
+font-size:14px;
+}
+.iinfo,.panel-heading {
+background-color:black;
+color:#996600;
+text-align:center;
+font-size:16px;
+font-weight:bold;
+
+.container{
+border-top:200px;
+}
