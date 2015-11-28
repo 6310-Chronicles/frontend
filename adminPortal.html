@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="Dynamic Student-Course Assignment">
+ <title>Dynamic Student - Course Assignment - Administrator</title>
+ 
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script> 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
+integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="css/local.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" 
+integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div class="container"> 
+<div class="row">
+<div class="col-md-3">
+<h2>DySCA Student</h2>
+</div>
+</div>
+<!-- break left -->
+<div class="row">
+	<div class="col-md-6 span5">
+		<div class="panel panel-info">
+			<div class="panel panel-heading">Enter Professor or TA ID</div>
+	        <input class="form-control" id="PTAid" type="text" placeholder="Enter Professor or TA ID">
+		</div>
+	</div>
+	
+		<div class="col-md-6 offset2 span5">   
+				<div class="panel panel-info">
+					<div class="panel panel-heading">Select Term For Course</div>
+						<select class="form-control" id="term" name="SelectTerm">
+							<option value="">SELECT TERM</option>
+							<option value="Fall 15">Fall 2015</option>
+							<option value="Spring 16">Spring 2016</option>
+							<option value="Summer 16">Summer 2016</option>
+						</select>
+				</div>
+			</div>
+		</div>
+	<div class="row">
+		
+		<div class="col-md-6 span5">   
+			<div class="panel panel-info">
+					<div class="panel panel-heading">Select Term</div>
+						<select class="form-control" id="term" name="SelectTerm">
+							<option value="">SELECT TERM</option>
+							<option value="Fall 15">Fall 2015</option>
+							<option value="Spring 16">Spring 2016</option>
+							<option value="Summer 16">Summer 2016</option>
+						</select>
+					</div>
+				</div>
+				
+		<div class="col-md-6 offset2 span5">
+			<div class="panel panel-info">
+				<div class="panel panel-heading">Enter Course Limit</div>
+		        <input class="form-control" id="PTAid" type="number" placeholder="Enter Course Limit">
+			</div>
+		</div>
+	</div>
+	<!-- break-->
+	<div class="row">
+		<div class="col-md-6 span5">
+			<div class="panel panel-info">
+				<div class="panel panel-heading">Course List</div>
+				<table class="table">
+				<thead><tr>
+				<th>ID</th><th>Description</th><th>Demand</th><th>Associate</th>
+				</tr></thead>
+				<tbody  data-bind="foreach: list1">
+				<tr>
+				<td data-bind="text: id" data-toggle="tooltip" data-placement="top" title="Hello World!"></td><td data-bind="text: desc, event: { mouseover: $parent.dispHistDemand, mouseout: $parent.hideHistDemand }"></td>
+				<td data-bind="text: demand"></td>
+				<td><button class="btn btn-xs btn-success" title="Click to select this course.." data-bind="event: { click: $parent.addCourse},disable:$parent.submitted"><span class="glyphicon glyphicon-ok"></span></button></td>
+				</tr>
+				</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<div class="col-md-6 offset2 span5">
+			<div class="panel panel-info">
+				<div class="panel panel-heading">Enter Course Limit</div>
+		        <input class="form-control" id="PTAid" type="number" placeholder="Enter Course Limit">
+			</div>
+		</div>
+	</div>
+	<!-- buttons-->
+		<div class="row">
+			<div class="col-md-6 span5">
+				<div class="panel panel-info">
+					<div class="panel panel-heading">Course List</div>
+					<select class="form-control" id="term" name="SelectTerm">
+						<option value="">SELECT COURSE</option>
+						<option value="Fall 15">Fall 2015</option>
+						<option value="Spring 16">Spring 2016</option>
+						<option value="Summer 16">Summer 2016</option>
+					</select>
+				</div>
+			</div>
+		
+			<div class="col-md-6 offset2 span5">
+				<div class="panel panel-info">
+					<div class="panel panel-heading">Enter Course Limit</div>
+			        <input class="form-control" id="PTAid" type="number" placeholder="Enter Course Limit">
+				</div>
+			</div>
+		</div>
+</div>
+	<script src="js/lib/knockout-3.3.0.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
+
+
