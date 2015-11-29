@@ -44,8 +44,8 @@ integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+
 			$(location).attr('href',url);
 			return false;
 		}else{
-			if (user == "student" && pass == "password"){
-			var url = "student.html";    
+			if ((user == "student" || user == "student1" || user == "student8") && pass == "password"){
+			var url = "student0.html";    
 			$(location).attr('href',url);
 			return false;
 			} else
