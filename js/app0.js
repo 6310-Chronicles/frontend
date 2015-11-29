@@ -119,6 +119,11 @@ var viewModel = {
 	},
 	
 	initCourseList: function (courses) {
+	   courses.sort(function(c1,c2) {
+	   var a,b;
+	   if (c1.id.indexOf('CSE')==0) a = c1.id.substring(3,7); else a = c1.id.substring(2,6); 
+	   if (c2.id.indexOf('CSE')==0) b = c2.id.substring(3,7); else b = c2.id.substring(2,6); 
+	   return parseInt(a) - parseInt(b)});
 		for (var course in courses) {
 			viewModel.list1.push(courses[course]);
 		};
@@ -160,9 +165,9 @@ var viewModel = {
 		} else {
 			viewModel.setAlert('error','You have not selected any course. You must select at least one.');
 		}
-
-		result.status="OK";
-		result.courses=["CS7641"];
+		result=model.getResults(); 
+		//result.status="OK";
+		//result.courses=["CS7641"];
 		timeOutId = window.setTimeout(
 		function() {api.success0(result,"OK","OK");}, 5000);
 
@@ -287,7 +292,7 @@ var api = {
 					listOfCourses[i]={"id":data.response[i].courseId,"desc":data.response[i].courseName,"demand":data.response[i].currentEnrollment};
 				}
 			}
-			viewModel.initCourseList(listOfCourses); 
+			viewModel.initCourseList( listOfCourses); 
 			},
   success2: function (data, textStats, XMLHttpResponse) {
 			console.log('SUCCESS2:'); 
@@ -356,17 +361,59 @@ error: function (data, textStats, XMLHttpResponse) {
 
  var model = {
   
-currStudent : { "lastName":"LastName1", "firstName":"FirstName1", "id":1}, 
-
+students : [{ "lastName":"Burdell", "firstName":"George P.", "id":1}, 
+			{ "lastName":"Burdellini", "firstName":"Giorgio Pizzicato", "id":2},
+			{ "lastName":"Burdelino", "firstName":"Jorge Pacifico", "id":8}],
+			
+results: [{"status":"OK","courses":["CS7641"]},{"status":"OK","courses":["CS8803-001"]},{"status":"OK","courses":["CS7641","CS7646","CS8803"]}],
 
 getStudent: function () {
-	console.log("returning "+model.currStudent.lastName+model.currStudent.firstName+model.currStudent.id); 
-	return model.currStudent;
+	//console.log("returning "+model.currStudent.lastName+model.currStudent.firstName+model.currStudent.id); 
+	var currstudent;
+	switch (student) {
+	case ("student1"):
+		currstudent=model.students[0];
+		break; 
+	case ("student2"):
+		currstudent=model.students[1];
+		break;
+	case ("student8"):
+		currstudent=model.students[2];
+		break;
+	case (undefined):
+;;
+		break;
+	}
+	return currstudent;
+},
+getResults: function () {
+	//console.log("returning "+model.currStudent.lastName+model.currStudent.firstName+model.currStudent.id); 
+	var currResults;
+	switch (student) {
+	case ("student1"):
+		currResults=model.results[0];
+		break; 
+	case ("student2"):
+		currResults=model.results[1];
+		break;
+	case ("student8"):
+		currResults=model.results[2];
+		break;
+	case (undefined):
+;;
+		break;
+	}
+	return currResults;
 }
 }
+
 var currModel = model; 
 var priority=0;
+var student=localStorage.getItem("login");
 
+console.log('current login is '+student); 
+//localStorage.clear()
+console.log('current student is '+currModel.getStudent());
 viewModel.initStudent(currModel.getStudent());	
 //viewModel.initCourseList(); 
 ko.applyBindings(viewModel);

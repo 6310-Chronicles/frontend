@@ -39,17 +39,25 @@ integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+
 	$( "#submitForm" ).submit(function( event ) {
 		var user = $("#userid").val();
 		var pass = $("#password").val();
+		console.log('user is '+user); 
 		if(user == "admin" && pass == "password"){
 			var url = "adminPortal.html";    
 			$(location).attr('href',url);
 			return false;
 		}else{
-			if ((user == "student" || user == "student1" || user == "student8") && pass == "password"){
-			var url = "student0.html";    
-			$(location).attr('href',url);
-			return false;
+			var registeredUsers = ["student1","student2","student8","studentx"];
+			if (($.inArray(user,registeredUsers) >= 0) && pass == "password"){
+				console.log("login OK");
+				if (typeof(Storage) !== "undefined") {
+					localStorage.setItem("login", user);
+				} else {
+					console.log('no localstorage support');
+				};
+				var url = "student0.html";    
+				$(location).attr('href',url);
+				return false;
 			} else
-			alert("Invalid Username or Password");
+				alert("Invalid Username or Password");
 		}
 		//return false;
 	});
