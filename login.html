@@ -1,68 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="description" content="Dynamic Student-Course Assignment">
- <meta name="author" content="Ed Mayor">
- <title>DySCA Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Dynamic Student-Course Assignment">
+	<meta name="author" content="Ed Mayor">
+	<title>DySCA Login</title>
  
-<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script> 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
-integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script> 
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
+	integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" 
-integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" 
-integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	<!-- <!-- Optional theme
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" 
+	integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+	 -->
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" 
+	integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
 </head>
 <body>
-
-    <div class="container">
-<div class="col-md-3 col-md-offset-3">
-      <form class="form-signin" id="submitForm">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="userId" class="sr-only">Login ID</label>
-        <input type="text" id="userid" class="form-control" placeholder="Login Id" required="" autofocus="">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="password" class="form-control" placeholder="Password" required="">
-		<br></br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-	  	<script>
-	$( "#submitForm" ).submit(function( event ) {
-		var user = $("#userid").val();
-		var pass = $("#password").val();
-		if(user == "admin" && pass == "password"){
-			var url = "adminPortal.html";    
-			$(location).attr('href',url);
-			return false;
-		}else{
-			if (user == "student" && pass == "password"){
-			var url = "student.html";    
-			$(location).attr('href',url);
-			return false;
-			} else
-			alert("Invalid Username or Password");
-		}
-		//return false;
-	});
-	</script>
-</div>
-    </div> <!-- /container -->
-
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
- 
-
+<div class="container">
+	<div class="col-md-3 col-md-offset-3">
+		<form class="form-signin" id="submitForm">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<label for="userId" class="sr-only">Login ID</label>
+			<input type="text" id="userid" class="form-control" placeholder="Login Id" required="" autofocus="">
+			<label for="inputPassword" class="sr-only">Password</label>
+			<input type="password" id="password" class="form-control" placeholder="Password" required="">
+			<br></br>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+		</form>
+		<script src="js/login.js"></script>
+	</div> <!-- col-md-3 -->
+</div> <!-- /container -->
 </body>
-    </body>
 </html>
 
 
