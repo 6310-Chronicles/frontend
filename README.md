@@ -10,8 +10,10 @@
 
 4. To open the Student screen, use any of the userid's: 'student1', 'student2' and 'student8'. 
 The passwords for these are 'password1','password2' and 'password8', respectively. 
-_[ This screen was intended to submit course preferences for a student to a BlueMix platform. Because of licensing limitations, 
+_[ This screen was intended to submit course preferences for a student to a BlueMix platform. 
+Because of licensing limitations, the Team was not able to complete and end-to-end.]_
 5. To open the Admin screen, use userid of 'admin' and password of 'password'.
+_[ This screen is not fully implemented ]_
 
 
 
