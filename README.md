@@ -12,7 +12,7 @@
 The passwords for these are 'password1','password2' and 'password8', respectively. 
 _[ This screen retrieves 'available' courses from the backend in BlueMix through an AJAX call, and can submit course preferences for a student to the 
 BlueMix platform, as well process results from the backend. However, because of Gurobi licensing problems the Team did not anticipate, the Team was not 
-able to complete and end-to-end solution.]_
+able to complete an end-to-end solution.]_
 5. To open the Admin screen, use userid of 'admin' and password of 'password'.
 _[ This screen is not fully implemented; we focused on implementing the Student screen.]_
 
